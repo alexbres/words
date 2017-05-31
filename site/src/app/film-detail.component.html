@@ -1,0 +1,12 @@
+<div *ngIf="film">
+    <h2>{{film.name}} details!</h2>
+    <div>
+        <label>id: </label>{{film.id}}
+    </div>
+    <div>
+        <label>name: </label>{{film.name}}
+        <input [(ngModel)]="film.name" placeholder="name" />
+    </div>
+</div>
+<button (click)="goBack()">Back</button>
+<button (click)="save()">Save</button>
