@@ -1,11 +1,19 @@
-<div *ngIf="film">
-    <h2>{{film.name}} details!</h2>
+<div *ngIf="entry">
+    <h2>Edit entry for: {{entry.name}}</h2>
     <div>
-        <label>id: </label>{{film.id}}
+        <label>id: </label>{{entry.id}}
     </div>
     <div>
-        <label>name: </label>{{film.name}}
-        <input [(ngModel)]="film.name" placeholder="name" />
+        <label>name: </label>
+        <input [(ngModel)]="entry.name" placeholder="word" />
+    </div>
+    <div>
+        <label>word: </label>
+        <input [(ngModel)]="entry.word" placeholder="word" />
+    </div>
+    <div>
+        <label>translation: </label>
+        <input [(ngModel)]="entry.translation" placeholder="translation" />
     </div>
 </div>
 <button (click)="goBack()">Back</button>

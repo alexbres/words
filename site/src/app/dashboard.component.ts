@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Film } from './film';
+import { Entry } from './film';
 import { FilmService } from './film.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { FilmService } from './film.service';
 
 export class DashboardComponent implements OnInit {
 
-  films: Film[] = [];
+  films: Entry[] = [];
 
   constructor(private filmService: FilmService) { }
 

@@ -1,6 +1,6 @@
-import { Film } from './film';
+import { Entry } from './film';
 
-export const FILMS: Film[] = [
+export const FILMS: Entry[] = [
   {id: 11, name: 'Mr. Nice'},
   {id: 12, name: 'Narco'},
   {id: 13, name: 'Bombasto'},

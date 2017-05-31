@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Film } from './film';
+import { Entry } from './film';
 
 @Injectable()
 export class FilmService {
@@ -12,10 +12,10 @@ export class FilmService {
 
     constructor(private http: Http) { }
 
-    getFilms(): Promise<Film[]> {
+    getFilms(): Promise<Entry[]> {
         return this.http.get(this.filmsUrl)
             .toPromise()
-            .then(response => response.json().data as Film[])
+            .then(response => response.json().data as Entry[])
             .catch(this.handleError);
     }
 
@@ -24,17 +24,17 @@ export class FilmService {
         return Promise.reject(error.message || error);
     }
 
-    getFilm(id: number): Promise<Film> {
+    getFilm(id: number): Promise<Entry> {
         const url = `${this.filmsUrl}/${id}`;
         return this.http.get(url)
             .toPromise()
-            .then(response => response.json().data as Film)
+            .then(response => response.json().data as Entry)
             .catch(this.handleError);
     }
 
     private headers = new Headers({ 'Content-Type': 'application/json' });
 
-    update(film: Film): Promise<Film> {
+    update(film: Entry): Promise<Entry> {
         const url = `${this.filmsUrl}/${film.id}`;
         return this.http
             .put(url, JSON.stringify(film), { headers: this.headers })
@@ -43,11 +43,11 @@ export class FilmService {
             .catch(this.handleError);
     }
 
-    create(name: string): Promise<Film> {
+    create(name: string): Promise<Entry> {
         return this.http
             .post(this.filmsUrl, JSON.stringify({ name: name }), { headers: this.headers })
             .toPromise()
-            .then(res => res.json().data as Film)
+            .then(res => res.json().data as Entry)
             .catch(this.handleError);
     }
 

@@ -5,6 +5,11 @@
     Add
   </button>
 </div>
+<div>
+  <button (click)="addEntry()">
+    Add Word
+  </button>
+</div>
 <ul class="heroes">
     <li *ngFor="let film of films" 
       (click)="onSelect(film)"

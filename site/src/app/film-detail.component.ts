@@ -3,7 +3,7 @@ import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
-import { Film } from './film';
+import { Entry } from './film';
 import { FilmService } from './film.service';
 
 @Component({
@@ -19,17 +19,17 @@ export class FilmDetailComponent implements OnInit {
     ) {}
 
     @Input()
-    film: Film;
+    entry: Entry;
 
     save(): void {
-        this.filmService.update(this.film)
+        this.filmService.update(this.entry)
         .then(() => this.goBack());
     }
 
     ngOnInit(): void {
         this.route.params
             .switchMap((params: Params) => this.filmService.getFilm(+params['id']))
-            .subscribe(film => this.film = film);
+            .subscribe(entry => this.entry = entry);
     }
 
     goBack(): void {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }   from '@angular/router';
 
-import { Film } from './film';
+import { Entry } from './film';
 import { FilmService } from './film.service';
 
 
@@ -12,8 +12,8 @@ import { FilmService } from './film.service';
   })
 
 export class FilmsComponent implements OnInit{
-  films: Film[];
-  selectedFilm: Film;
+  films: Entry[];
+  selectedFilm: Entry;
 
   constructor(
     private router: Router,
@@ -27,7 +27,7 @@ export class FilmsComponent implements OnInit{
     this.getFilms();
   }
 
-  onSelect(film: Film): void {
+  onSelect(film: Entry): void {
     this.selectedFilm = film;
   }
 
@@ -45,7 +45,11 @@ export class FilmsComponent implements OnInit{
       });
   }
 
-  delete(film: Film): void {
+  addEntry() {
+    this.router.navigate(['/detail', '']);
+  }
+
+  delete(film: Entry): void {
     this.filmService
         .delete(film.id)
         .then(() => {

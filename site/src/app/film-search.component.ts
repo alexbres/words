@@ -13,7 +13,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 import { FilmSearchService } from './film-search.service';
-import { Film } from './film';
+import { Entry } from './film';
 
 @Component({
     selector: 'film-search',
@@ -23,7 +23,7 @@ import { Film } from './film';
 })
 
 export class FilmSearchComponent implements OnInit {
-    films: Observable<Film[]>;
+    films: Observable<Entry[]>;
     private searchTerms = new Subject<string>();
     
     constructor(
@@ -43,15 +43,15 @@ export class FilmSearchComponent implements OnInit {
                 // return the http search observable
                 ? this.filmSearchService.search(term)
                 // or the observable of empty heroes if there was no search term
-                : Observable.of<Film[]>([]))
+                : Observable.of<Entry[]>([]))
             .catch(error => {
                 // TODO: add real error handling
                 console.log(error);
-                return Observable.of<Film[]>([]);
+                return Observable.of<Entry[]>([]);
             });
     }
 
-    gotoDetail(film: Film): void {
+    gotoDetail(film: Entry): void {
         let link = ['/detail', film.id];
         this.router.navigate(link);
     }
