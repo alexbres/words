@@ -1,15 +1,6 @@
 <h2>My Films</h2>
-<div>
-  <label>Hero name:</label> <input #heroName />
-  <button (click)="add(heroName.value); heroName.value=''">
-    Add
-  </button>
-</div>
-<div>
-  <button (click)="addEntry()">
-    Add Word
-  </button>
-</div>
+<div><button (click)="add()">Add Word</button></div>
+<!--<div><button (click)="test()">Test</button></div>-->
 <ul class="heroes">
     <li *ngFor="let film of films" 
       (click)="onSelect(film)"

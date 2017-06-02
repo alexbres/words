@@ -22,13 +22,21 @@ export class FilmDetailComponent implements OnInit {
     entry: Entry;
 
     save(): void {
-        this.filmService.update(this.entry)
-        .then(() => this.goBack());
+        if (this.entry.id === undefined) {
+            this.filmService.create(this.entry)
+                .then(() => this.goBack());
+        } else {
+            this.filmService.update(this.entry)
+                .then(() => this.goBack());
+        }
     }
 
     ngOnInit(): void {
         this.route.params
-            .switchMap((params: Params) => this.filmService.getFilm(+params['id']))
+            .switchMap((params: Params) => {
+                let id: number = +params['id'];
+                return id > 0 ? this.filmService.getFilm(id) : Promise.resolve(new Entry());
+            })
             .subscribe(entry => this.entry = entry);
     }
 

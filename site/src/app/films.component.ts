@@ -35,18 +35,8 @@ export class FilmsComponent implements OnInit{
     this.router.navigate(['/detail', this.selectedFilm.id]);
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.filmService.create(name)
-      .then(film => {
-        this.films.push(film);
-        this.selectedFilm = null;
-      });
-  }
-
-  addEntry() {
-    this.router.navigate(['/detail', '']);
+  add() {
+    this.router.navigate(['/detail', '0']);
   }
 
   delete(film: Entry): void {
@@ -57,5 +47,9 @@ export class FilmsComponent implements OnInit{
           if (this.selectedFilm === film) { this.selectedFilm = null; }
         });
   }
+
+  // test(){
+  //   this.filmService.createA();
+  // }
 }
 
