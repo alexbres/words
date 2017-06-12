@@ -6,7 +6,7 @@
       (click)="onSelect(film)"
       [class.selected]="film === selectedFilm">
       <span class="badge">{{film.id}}</span> 
-      <span>{{film.name}}</span>
+      <span>{{film.word}}</span>
       <button class="delete"
         (click)="delete(film); $event.stopPropagation()">x</button>
     </li>

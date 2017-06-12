@@ -2,11 +2,7 @@
     <h2>Edit entry for: {{entry.name}}</h2>
     <div>
         <label>id: </label>{{entry.id}}
-    </div>
-    <div>
-        <label>name: </label>
-        <input [(ngModel)]="entry.name" placeholder="word" />
-    </div>
+    </div>    
     <div>
         <label>word: </label>
         <input [(ngModel)]="entry.word" placeholder="word" />
@@ -14,6 +10,10 @@
     <div>
         <label>translation: </label>
         <input [(ngModel)]="entry.translation" placeholder="translation" />
+    </div>
+    <div>
+        <label>example: </label>
+        <input [(ngModel)]="entry.example" placeholder="translation" />
     </div>
 </div>
 <button (click)="goBack()">Back</button>

@@ -46,9 +46,10 @@ export class FilmService {
     create(entry: Entry): Promise<Entry> {
         return this.http
             .post(this.filmsUrl, JSON.stringify({ 
-                name: entry.name, 
                 word: entry.word, 
-                translation: entry.translation }), { headers: this.headers })
+                translation: entry.translation,
+                example: entry.example
+             }), { headers: this.headers })
             .toPromise()
             .then(res => res.json().data as Entry)
             .catch(this.handleError);

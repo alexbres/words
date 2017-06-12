@@ -1,14 +1,14 @@
 import { Entry } from './film';
 
 export const FILMS: Entry[] = [
-  {id: 11, name: 'Mr. Nice', word: '', translation: ''},
-  {id: 12, name: 'Narco', word: '', translation: ''},
-  {id: 13, name: 'Bombasto', word: '', translation: ''},
-  {id: 14, name: 'Celeritas', word: '', translation: ''},
-  {id: 15, name: 'Magneta', word: '', translation: ''},
-  {id: 16, name: 'RubberMan', word: '', translation: ''},
-  {id: 17, name: 'Dynama', word: '', translation: ''},
-  {id: 18, name: 'Dr IQ', word: '', translation: ''},
-  {id: 19, name: 'Magma', word: '', translation: ''},
-  {id: 20, name: 'Tornado', word: '', translation: ''}
+  {id: 11, word: 'Mr. Nice', example: '', translation: ''},
+  {id: 12, word: 'Narco', example: '', translation: ''},
+  {id: 13, word: 'Bombasto', example: '', translation: ''},
+  {id: 14, word: 'Celeritas', example: '', translation: ''},
+  {id: 15, word: 'Magneta', example: '', translation: ''},
+  {id: 16, word: 'RubberMan', example: '', translation: ''},
+  {id: 17, word: 'Dynama', example: '', translation: ''},
+  {id: 18, word: 'Dr IQ', example: '', translation: ''},
+  {id: 19, word: 'Magma', example: '', translation: ''},
+  {id: 20, word: 'Tornado1', example: '', translation: ''}
 ];

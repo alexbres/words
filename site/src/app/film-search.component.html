@@ -4,7 +4,7 @@
   <div>
     <div *ngFor="let film of films | async"
          (click)="gotoDetail(film)" class="search-result" >
-      {{film.name}}
+      {{film.word}}
     </div>
   </div>
 </div>

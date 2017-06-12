@@ -11,7 +11,7 @@ export class FilmSearchService {
   constructor(private http: Http) {}
   search(term: string): Observable<Entry[]> {
     return this.http
-               .get(`app/films/?name=${term}`)
+               .get(`app/films/?word=${term}`)
                .map(response => response.json().data as Entry[]);
   }
 }
