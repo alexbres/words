@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard.component';
 import { FilmsComponent } from './films.component';
 import { FilmDetailComponent } from './film-detail.component';
 import { FilmSearchComponent } from './film-search.component';
+import { LearnWordsComponent } from './learn-words.component';
 
 @NgModule({
   imports:      [ 
@@ -29,7 +30,8 @@ import { FilmSearchComponent } from './film-search.component';
     DashboardComponent,
     FilmsComponent, 
     FilmDetailComponent,
-    FilmSearchComponent
+    FilmSearchComponent,
+    LearnWordsComponent
   ],
   bootstrap:    [ AppComponent ],
   providers: [

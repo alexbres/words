@@ -63,4 +63,11 @@ export class FilmService {
             .catch(this.handleError);
     }
 
+    public getLearnEntries(): Promise<Entry[]> {
+        return this.http.get(this.filmsUrl)
+            .toPromise()
+            .then(response => response.json().data as Entry[])
+            .catch(this.handleError);
+    }
+
 }
