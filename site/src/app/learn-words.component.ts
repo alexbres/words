@@ -22,7 +22,7 @@ export class LearnWordsComponent implements OnInit {
     entry: Entry;
 
     next(): void {
-        this.router.navigate(['/learn-words', 12]);
+        this.filmService.getFilm(12).then(entry => this.entry = entry);
     }
 
     ngOnInit(): void {
