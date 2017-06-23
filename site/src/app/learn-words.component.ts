@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params }   from '@angular/router';
+import { ActivatedRoute, Params, Router }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
@@ -15,19 +15,14 @@ export class LearnWordsComponent implements OnInit {
     constructor(
         private filmService: FilmService,
         private route: ActivatedRoute,
-        private location: Location
+        private location: Location,
+        private router: Router,
     ) {}
 
     entry: Entry;
 
-    save(): void {
-        if (this.entry.id === undefined) {
-            this.filmService.create(this.entry)
-                .then(() => this.goBack());
-        } else {
-            this.filmService.update(this.entry)
-                .then(() => this.goBack());
-        }
+    next(): void {
+        this.router.navigate(['/learn-words', 12]);
     }
 
     ngOnInit(): void {
@@ -37,9 +32,5 @@ export class LearnWordsComponent implements OnInit {
                 return id > 0 ? this.filmService.getFilm(id) : Promise.resolve(new Entry());
             })
             .subscribe(entry => this.entry = entry);
-    }
-
-    goBack(): void {
-        this.location.back();
     }
 }
