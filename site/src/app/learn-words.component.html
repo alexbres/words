@@ -1,7 +1,9 @@
+<div *ngIf="entry">
 <h2>Learn words</h2>
+<div>{{entry.word}}</div>
 <div><button (click)="next()">Next Word</button></div>
 <!--<div><button (click)="test()">Test</button></div>-->
-<ul class="heroes">
+<!--<ul class="heroes">
     <li *ngFor="let entry of entries" 
       (click)="onSelect(entry)"
       [class.selected]="film === selectedFilm">
@@ -10,8 +12,9 @@
     </li>
   </ul>
   <div *ngIf="selectedFilm">
-  <!--<h2>
+  <h2>
     {{selectedFilm.name | uppercase}} is my film
   </h2>
-  <button (click)="gotoDetail()">View Details</button>-->
+  <button (click)="gotoDetail()">View Details</button>
+</div>-->
 </div>

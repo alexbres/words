@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'detail/:id', component: FilmDetailComponent },
   { path: 'films',     component: FilmsComponent },
-  { path: 'learn-words',     component: LearnWordsComponent }
+  { path: 'learn-words/:id',     component: LearnWordsComponent }
 ];
 
 @NgModule({

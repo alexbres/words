@@ -1,31 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-//import { Router }   from '@angular/router';
+import { ActivatedRoute, Params }   from '@angular/router';
+import { Location }                 from '@angular/common';
+import 'rxjs/add/operator/switchMap';
 
 import { Entry } from './film';
 import { FilmService } from './film.service';
 
 @Component({
-  selector: 'my-films',
-  styleUrls: ['./films.component.css'],
+  selector: 'my-film-detail',
   templateUrl: './learn-words.component.html',
+  styleUrls: ['./film-search.component.css'],
 })
-
 export class LearnWordsComponent implements OnInit {
-  entries: Entry[];
-  selectedFilm: Entry;
+    constructor(
+        private filmService: FilmService,
+        private route: ActivatedRoute,
+        private location: Location
+    ) {}
 
-  constructor(
-    //private router: Router,
-    private entryService: FilmService) { }
+    entry: Entry;
 
-  public getEntries(): void {
-    this.entryService.getLearnEntries().then(entry => this.entries = entry);
-  }
+    save(): void {
+        if (this.entry.id === undefined) {
+            this.filmService.create(this.entry)
+                .then(() => this.goBack());
+        } else {
+            this.filmService.update(this.entry)
+                .then(() => this.goBack());
+        }
+    }
 
-  public next() { }
+    ngOnInit(): void {
+        this.route.params
+            .switchMap((params: Params) => {
+                let id: number = +params['id'];
+                return id > 0 ? this.filmService.getFilm(id) : Promise.resolve(new Entry());
+            })
+            .subscribe(entry => this.entry = entry);
+    }
 
-  ngOnInit(): void {
-    this.getEntries();
-  }
-
-}  
+    goBack(): void {
+        this.location.back();
+    }
+}
