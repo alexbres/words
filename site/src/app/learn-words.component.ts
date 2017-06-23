@@ -20,15 +20,22 @@ export class LearnWordsComponent implements OnInit {
     ) {}
 
     entry: Entry;
+    initialId: number;
+    counter: number = 0;
 
     next(): void {
-        this.filmService.getFilm(12).then(entry => this.entry = entry);
+      if (this.counter <= 10){
+        //TODO: get this id from API
+        let id = ++this.counter + this.initialId;
+        this.filmService.getFilm(id).then(entry => this.entry = entry);
+      }        
     }
 
     ngOnInit(): void {
         this.route.params
             .switchMap((params: Params) => {
                 let id: number = +params['id'];
+                this.initialId = id;
                 return id > 0 ? this.filmService.getFilm(id) : Promise.resolve(new Entry());
             })
             .subscribe(entry => this.entry = entry);
