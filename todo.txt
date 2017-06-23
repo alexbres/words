@@ -1,4 +1,8 @@
-sit+Augury is a Chrome Dev plug-in
++Augury is a Chrome Dev plug-in
 
 +-build error
--implement next in LearnWordlsComponent
++-implement next in LearnWordlsComponent
+
+-layout for LearnWorld
+-show detail
+-impl End learn
